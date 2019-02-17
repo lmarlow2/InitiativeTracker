@@ -5,7 +5,13 @@ function compare(a,b){
 }
 
 function addToInitiativeOrder(){
-  console.log("Test.");
+  initiativeOrder[document.getElementById("name").innerHTML] = document.getElementById("initiative").innerHTML;
+  initiativeOrder.sort(compare);
+  var list = "";
+  for(var k in initiativeOrder){
+    list += "<li>" + k + "</li>";
+  }
+  console.log(initiativeOrder);
 }
 
 function resetInitiativeOrder(){}
