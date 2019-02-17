@@ -11,7 +11,7 @@ function addToInitiativeOrder(){
   initiativeOrder.sort(compare);
   var list = "";
   for(var k in initiativeOrder){
-    list += "<li>" + k==currentInitiative?"<mark>":"" + initiativeOrder[k].name + k==currentInitiative?"</mark>":"" + "</li>";
+    list += "<li>" + initiativeOrder[k].name + "</li>";
   }
   document.getElementById("initiativeList").innerHTML = list;
 }
