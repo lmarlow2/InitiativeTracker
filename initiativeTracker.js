@@ -32,7 +32,7 @@ function removeFromInitiativeOrder(index){
 }
 
 function advanceList(){
-  currentInitiative++;
+  currentInitiative = (currentInitiative + 1) % initiativeOrder.length;
   var list = "";
   for(var k = 0; k < initiativeOrder.length; k++){
     list += "<li>";
