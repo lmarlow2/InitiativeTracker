@@ -31,7 +31,7 @@ function resetInitiativeOrder(){
 function removeFromInitiativeOrder(index){
   if(currentInitiative > index) currentInitiative--;
   if(currentInitiative == initiativeOrder.length) currentInitiative = 0;
-  initiativeOrder.splice(index);
+  initiativeOrder.splice(index, 1);
   var list = "";
   for(var k = 0; k < initiativeOrder.length; k++){
     list += "<li>";
