@@ -24,11 +24,25 @@ function addToInitiativeOrder(){
 
 function resetInitiativeOrder(){
   initiativeOrder = [];
+  currentInitiative = 0;
   document.getElementById("initiativeList").innerHTML = "";
 }
 
 function removeFromInitiativeOrder(index){
+  if(currentInitiative > index) currentInitiative--;
+  if(currentInitiative == initiativeOrder.length) currentInitiative = 0;
   initiativeOrder.splice(index);
+  var list = "";
+  for(var k = 0; k < initiativeOrder.length; k++){
+    list += "<li>";
+    if(k == currentInitiative)
+      list += "<mark>";
+    list += initiativeOrder[k].name;
+    if(k == currentInitiative)
+      list += "</mark>";
+    list += "</li>";
+  }
+  document.getElementById("initiativeList").innerHTML = list;
 }
 
 function advanceList(){
