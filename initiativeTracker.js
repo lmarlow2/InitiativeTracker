@@ -7,7 +7,7 @@ function addToInitiativeOrder(){
   initiativeOrder.sort(compare);
   var list = "";
   for(var k in initiativeOrder){
-    list += "<li>" + k + "</li>";
+    list += "<li>" + initiativeOrder[k].name + "</li>";
   }
   document.getElementById("initiativeList").innerHTML = list;
   console.log(initiativeOrder);
