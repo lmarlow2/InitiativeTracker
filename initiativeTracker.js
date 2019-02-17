@@ -10,8 +10,14 @@ function addToInitiativeOrder(){
   initiativeOrder.push({name:document.getElementById("name").value, initiative:document.getElementById("initiative").value});
   initiativeOrder.sort(compare);
   var list = "";
-  for(var k in initiativeOrder){
-    list += "<li>" + initiativeOrder[k].name + "</li>";
+  for(var k = 0; k < initiativeOrder.length; k++){
+    list += "<li>";
+    if(k == currentInitiative)
+      list += "<mark>";
+    list += initiativeOrder[k].name;
+    if(k == currentInitiative)
+      list += "</mark>";
+    list += "</li>";
   }
   document.getElementById("initiativeList").innerHTML = list;
 }
@@ -25,4 +31,17 @@ function removeFromInitiativeOrder(index){
   initiativeOrder.splice(index);
 }
 
-function advanceList(){}
+function advanceList(){
+  currentInitiative++;
+  var list = "";
+  for(var k = 0; k < initiativeOrder.length; k++){
+    list += "<li>";
+    if(k == currentInitiative)
+      list += "<mark>";
+    list += initiativeOrder[k].name;
+    if(k == currentInitiative)
+      list += "</mark>";
+    list += "</li>";
+  }
+  document.getElementById("initiativeList").innerHTML = list;
+}
