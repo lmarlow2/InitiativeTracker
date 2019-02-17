@@ -3,7 +3,7 @@ var currentInitiative = 0;
 
 function removeFromInitiativeOrder(index){
   if(currentInitiative > index) currentInitiative--;
-  if(currentInitiative == initiativeOrder.length) currentInitiative = 0;
+  if(currentInitiative == initiativeOrder.length - 1) currentInitiative = 0;
   initiativeOrder.splice(index, 1);
   displayInitiativeList();
 }
