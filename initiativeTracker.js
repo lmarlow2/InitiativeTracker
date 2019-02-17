@@ -3,7 +3,7 @@ var initiativeOrder = [];
 function compare(a,b){ return b.initiative - a.initiative; }
 
 function addToInitiativeOrder(){
-  initiativeOrder.push({name:document.getElementById("name").value, initiative:document.getElementById("initiative").value);
+  initiativeOrder.push({name:document.getElementById("name").value, initiative:document.getElementById("initiative").value});
   initiativeOrder.sort(compare);
   var list = "";
   for(var k in initiativeOrder){
