@@ -17,7 +17,7 @@ function displayInitiativeList(){
     list += initiativeOrder[k].name;
     if(k == currentInitiative)
       list += "</mark>";
-    list += "&emsp<button onclick='removeFromInitiativeOrder(" + k + ")'>Remove</button>";
+    list += "    <button onclick='removeFromInitiativeOrder(" + k + ")'>Remove</button>";
     list += "</li>";
   }
   document.getElementById("initiativeList").innerHTML = list;
