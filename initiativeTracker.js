@@ -5,15 +5,21 @@ function compare(a,b){
 }
 
 function addToInitiativeOrder(){
-  initiativeOrder[document.getElementById("name").innerHTML] = document.getElementById("initiative").innerHTML;
+  initiativeOrder[document.getElementById("name").value] = document.getElementById("initiative").value;
   initiativeOrder.sort(compare);
   var list = "";
   for(var k in initiativeOrder){
     list += "<li>" + k + "</li>";
   }
+  document.getElementById("initiativeList").innerHTML = list;
   console.log(initiativeOrder);
 }
 
-function resetInitiativeOrder(){}
+function resetInitiativeOrder(){
+  initiativeOrder = [];
+  document.getElementById("initiativeList").innerHTML = "";
+}
 
-function removeFromInitiativeOrder(){}
+function removeFromInitiativeOrder(name){
+  
+}
