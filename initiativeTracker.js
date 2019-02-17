@@ -1,6 +1,28 @@
 var initiativeOrder = [];
 var currentInitiative = 0;
 
+function removeFromInitiativeOrder(index){
+  if(currentInitiative > index) currentInitiative--;
+  if(currentInitiative == initiativeOrder.length) currentInitiative = 0;
+  initiativeOrder.splice(index, 1);
+  displayInitiativeList();
+}
+
+function displayInitiativeList(){
+  var list = "";
+  for(var k = 0; k < initiativeOrder.length; k++){
+    list += "<li>";
+    if(k == currentInitiative)
+      list += "<mark>";
+    list += initiativeOrder[k].name;
+    if(k == currentInitiative)
+      list += "</mark>";
+    list += "<button onclick='removeFromInitiativeOrder(" + k + ")'>Remove</button>";
+    list += "</li>";
+  }
+  document.getElementById("initiativeList").innerHTML = list;
+}
+
 function compare(a,b){ return b.initiative - a.initiative; }
 
 function addToInitiativeOrder(){
@@ -9,17 +31,7 @@ function addToInitiativeOrder(){
   }
   initiativeOrder.push({name:document.getElementById("name").value, initiative:document.getElementById("initiative").value});
   initiativeOrder.sort(compare);
-  var list = "";
-  for(var k = 0; k < initiativeOrder.length; k++){
-    list += "<li>";
-    if(k == currentInitiative)
-      list += "<mark>";
-    list += initiativeOrder[k].name;
-    if(k == currentInitiative)
-      list += "</mark>";
-    list += "</li>";
-  }
-  document.getElementById("initiativeList").innerHTML = list;
+  displayInitiativeList();
 }
 
 function resetInitiativeOrder(){
@@ -28,34 +40,7 @@ function resetInitiativeOrder(){
   document.getElementById("initiativeList").innerHTML = "";
 }
 
-function removeFromInitiativeOrder(index){
-  if(currentInitiative > index) currentInitiative--;
-  if(currentInitiative == initiativeOrder.length) currentInitiative = 0;
-  initiativeOrder.splice(index, 1);
-  var list = "";
-  for(var k = 0; k < initiativeOrder.length; k++){
-    list += "<li>";
-    if(k == currentInitiative)
-      list += "<mark>";
-    list += initiativeOrder[k].name;
-    if(k == currentInitiative)
-      list += "</mark>";
-    list += "</li>";
-  }
-  document.getElementById("initiativeList").innerHTML = list;
-}
-
 function advanceList(){
   currentInitiative = (currentInitiative + 1) % initiativeOrder.length;
-  var list = "";
-  for(var k = 0; k < initiativeOrder.length; k++){
-    list += "<li>";
-    if(k == currentInitiative)
-      list += "<mark>";
-    list += initiativeOrder[k].name;
-    if(k == currentInitiative)
-      list += "</mark>";
-    list += "</li>";
-  }
-  document.getElementById("initiativeList").innerHTML = list;
+  displayInitiativeList();
 }
