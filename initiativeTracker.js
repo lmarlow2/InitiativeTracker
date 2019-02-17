@@ -1,8 +1,10 @@
 var initiativeOrder = [];
 
+function compare(a,b){ return b.initiative - a.initiative; }
+
 function addToInitiativeOrder(){
-  initiativeOrder[document.getElementById("name").value] = document.getElementById("initiative").value;
-  initiativeOrder.sort();
+  initiativeOrder.push({name:document.getElementById("name").value, initiative:document.getElementById("initiative").value);
+  initiativeOrder.sort(compare);
   var list = "";
   for(var k in initiativeOrder){
     list += "<li>" + k + "</li>";
