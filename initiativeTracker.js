@@ -1,4 +1,5 @@
 var initiativeOrder = [];
+var currentInitiative = 0;
 
 function compare(a,b){ return b.initiative - a.initiative; }
 
@@ -10,7 +11,7 @@ function addToInitiativeOrder(){
   initiativeOrder.sort(compare);
   var list = "";
   for(var k in initiativeOrder){
-    list += "<li>" + initiativeOrder[k].name + "</li>";
+    list += "<li>" + k==currentInitiative?<mark>:"" + initiativeOrder[k].name + k==currentInitiative?</mark>:"" + "</li>";
   }
   document.getElementById("initiativeList").innerHTML = list;
 }
@@ -20,6 +21,8 @@ function resetInitiativeOrder(){
   document.getElementById("initiativeList").innerHTML = "";
 }
 
-function removeFromInitiativeOrder(name){
-  
+function removeFromInitiativeOrder(index){
+  initiativeOrder.splice(index);
 }
+
+function advanceList(){}
