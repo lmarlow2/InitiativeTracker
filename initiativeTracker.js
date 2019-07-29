@@ -9,8 +9,8 @@ function removeFromInitiativeOrder(index){
 }
 
 function displayInitiativeList(){
-  var list = "";
-  for(var k = 0; k < initiativeOrder.length; k++){
+  let list = "";
+  for(let k = 0; k < initiativeOrder.length; k++){
     list += "<li>";
     if(k == currentInitiative)
       list += "<mark>";
